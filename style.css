@@ -9,7 +9,7 @@ body {
   font-family: "Arial", sans-serif;
 }
 
-.wrapper {
+#wrapper {
   position: relative;
   margin-left: var(--circle-size);
   margin-top: calc(2* var(--circle-size));
