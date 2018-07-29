@@ -44,7 +44,7 @@ class Train {
   }
 
   getCurrentPassengers() {
-    console.log('getCurrentPassengers');
+    return this.currentPassengers;
   }
 
   updatePassengers() {

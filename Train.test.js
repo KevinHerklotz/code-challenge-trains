@@ -49,6 +49,13 @@ describe('getCurrentStation()', () => {
   });
 });
 
+describe('getCurrentPassengers()', () => {
+  it('getCurrentPassengers() should return 50', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);
+    expect(testTrain.getCurrentPassengers()).toBe(50);
+  });
+});
+
 describe('updatePassengers()', () => {
   const mockMath = Object.create(global.Math);
   mockMath.random = () => 1;
