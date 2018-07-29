@@ -36,3 +36,15 @@ describe('addTrainToDOM()', () => {
     expect(passengerNodes.length).toBe(1);
   });
 });
+
+describe('getCurrentStation()', () => {
+  it('should return first station (A)', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);
+    expect(testTrain.getCurrentStation()).toBe('A');
+  });
+
+  it('should return second station (B)', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 1, 80, 50);
+    expect(testTrain.getCurrentStation()).toBe('B');
+  });
+});

@@ -35,7 +35,7 @@ class Train {
   }
 
   getCurrentStation() {
-    console.log('getCurrentStation');
+    return this.stations[this.currentStation];
   }
 
   getNextStation() {
