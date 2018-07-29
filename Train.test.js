@@ -49,6 +49,26 @@ describe('getCurrentStation()', () => {
   });
 });
 
+describe('goToNextStation()', () => {
+  it('goToNextStation() should return next station', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);
+    testTrain.goToNextStation();
+    expect(testTrain.getCurrentStation()).toBe('B');
+  });
+
+  it('goToNextStation() should be able to go backwards', () => {
+    const testTrain = new Train('blue', ['A', 'B', 'C', 'D'], 3, 80, 50);
+    testTrain.goToNextStation();
+    expect(testTrain.getCurrentStation()).toBe('C');
+    testTrain.goToNextStation();
+    expect(testTrain.getCurrentStation()).toBe('B');
+    testTrain.goToNextStation();
+    expect(testTrain.getCurrentStation()).toBe('A');
+    testTrain.goToNextStation();
+    expect(testTrain.getCurrentStation()).toBe('B');
+  });
+});
+
 describe('getCurrentPassengers()', () => {
   it('getCurrentPassengers() should return 50', () => {
     const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);

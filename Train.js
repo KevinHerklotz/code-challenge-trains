@@ -4,14 +4,14 @@ class Train {
    * 
    * @param {string} color color for the train, should be blue, red or green
    * @param {Array} stations array of strings with station name
-   * @param {number} currentStation current index of stations
+   * @param {number} currentStationIndex current index of stations
    * @param {number} maxPassengers maximum amount of passengers in train 
    * @param {number} currentPassengers current amount of passengers in train
    */
-  constructor(color, stations, currentStation, maxPassengers, currentPassengers) {
+  constructor(color, stations, currentStationIndex, maxPassengers, currentPassengers) {
     this.color = color;
     this.stations = stations;
-    this.currentStation = currentStation;
+    this.currentStationIndex = currentStationIndex;
     this.currentPassengers = currentPassengers;
     this.maxPassengers = maxPassengers;
     
@@ -31,7 +31,18 @@ class Train {
   }
 
   goToNextStation() {
-    console.log('goToNextStation');
+    // if current station is last station
+    if (this.currentStationIndex === this.stations.length - 1) {
+      // reverse array
+      this.stations.reverse();
+      // and set index to second element
+      this.currentStationIndex = 1;
+    } else {
+      // otherwise increment index
+      this.currentStationIndex = this.currentStationIndex + 1;
+    }
+    
+    this.moveTrainToStation(this.stations[this.currentStationIndex]);
     this.updatePassengers();
   }
 
