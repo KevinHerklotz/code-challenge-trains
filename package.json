@@ -1,0 +1,14 @@
+{
+  "name": "code-challenge-trains",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Kevin Herklotz",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
