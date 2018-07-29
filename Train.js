@@ -15,13 +15,18 @@ class Train {
     this.currentPassengers = currentPassengers;
     this.maxPassengers = maxPassengers;
     
-    this.trainElement = document.createElement("DIV");
+    this.trainElement = document.createElement("div");
+    this.passengers = document.createElement('span');
     
     this.addTrainToDOM();
   }
-
+  
   addTrainToDOM() {
-    console.log('addTrainToDOM');
+    this.trainElement.className = `train ${this.color}`;
+    this.passengers.textContent = '11';
+    this.trainElement.appendChild(this.passengers);
+    this.trainElement.childNodes[0].className = "passengers";
+    document.getElementById('wrapper').appendChild(this.trainElement);
   }
 
   goToNextStation() {
