@@ -48,3 +48,36 @@ describe('getCurrentStation()', () => {
     expect(testTrain.getCurrentStation()).toBe('B');
   });
 });
+
+describe('updatePassengers()', () => {
+  const mockMath = Object.create(global.Math);
+  mockMath.random = () => 1;
+  global.Math = mockMath;
+  
+  it('passengers span element should stay 50', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);
+    expect(document.getElementsByClassName('passengers')[0].textContent).toBe('50');
+  });
+
+  it('passengers span element should increase by 20', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 30);
+    testTrain.updatePassengers();
+    expect(document.getElementsByClassName('passengers')[0].textContent).toBe('50');
+    testTrain.updatePassengers();
+    expect(document.getElementsByClassName('passengers')[0].textContent).toBe('70');
+  });
+
+  it('passengers span element should not increase more than maximum', () => {
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 70);
+    testTrain.updatePassengers();
+    expect(document.getElementsByClassName('passengers')[0].textContent).toBe('80');
+  });
+
+  it('passengers span element should not get less than 0', () => {
+    mockMath.random = () => 0;
+    global.Math = mockMath;
+    const testTrain = new Train('blue', ['A', 'B'], 0, 80, 10);
+    testTrain.updatePassengers();
+    expect(document.getElementsByClassName('passengers')[0].textContent).toBe('0');
+  });
+});

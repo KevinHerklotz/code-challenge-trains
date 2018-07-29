@@ -241,6 +241,9 @@ body {
 
 .passengers {
   position: absolute;  
+  width: calc(0.7 * var(--circle-size));
+  display: inline-block;
+  text-align: center;
   z-index: 40;
 }
 

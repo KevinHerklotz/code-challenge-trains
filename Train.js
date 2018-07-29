@@ -15,16 +15,17 @@ class Train {
     this.currentPassengers = currentPassengers;
     this.maxPassengers = maxPassengers;
     
+    // DOM elements
     this.trainElement = document.createElement("div");
-    this.passengers = document.createElement('span');
+    this.passengersElement = document.createElement('span');
     
     this.addTrainToDOM();
   }
   
   addTrainToDOM() {
     this.trainElement.className = `train ${this.color}`;
-    this.passengers.textContent = '11';
-    this.trainElement.appendChild(this.passengers);
+    this.passengersElement.textContent = this.currentPassengers;
+    this.trainElement.appendChild(this.passengersElement);
     this.trainElement.childNodes[0].className = "passengers";
     document.getElementById('wrapper').appendChild(this.trainElement);
   }
@@ -47,7 +48,19 @@ class Train {
   }
 
   updatePassengers() {
-    console.log('updatePassengers');
+    const passengerChange = Math.floor(Math.random() * 40) - 20; // number between -20 and 20
+    let newAmount = this.currentPassengers + passengerChange;
+    
+    if (newAmount > this.maxPassengers) {
+      newAmount = this.maxPassengers;
+    }
+
+    if (newAmount < 0) {
+      newAmount = 0;
+    }
+
+    this.currentPassengers = newAmount;
+    this.passengersElement.textContent = newAmount;
   }
 }
 
