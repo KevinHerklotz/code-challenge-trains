@@ -1,0 +1,173 @@
+:root {
+  --circle-size: 4vw;
+  --gutter-width: 12.5vw; /* 1/8 of whole with, because blue line is the widest and has 8 trainstations */
+  --route-thickness: 1vw;
+}
+
+body {
+  margin: 0;
+}
+
+.wrapper {
+  position: relative;
+  margin-left: var(--circle-size);
+  margin-top: var(--circle-size);
+}
+
+/* ROUTES */
+/* ############### */
+
+.route-green {
+  width: calc(7.071 * var(--gutter-width)); /* phytagoras sqrt(5^2 + 5^2) // 5 train stations high and wide */
+  height: var(--route-thickness);
+  background-color: green;
+  top: 0;
+  left: var(--gutter-width);
+  position: absolute;
+  z-index: 0;
+  transform: rotate(45deg);
+  transform-origin: 1% 0%; /* 1% becauseof the thickness of the line */
+}
+
+.route-red {
+  width: calc(5.657 * var(--gutter-width)); /* phytagoras sqrt(4^2 + 4^2) // 4 train stations high and wide */
+  height: var(--route-thickness);
+  background-color: red;
+  top: calc(4 * var(--gutter-width));
+  left: var(--gutter-width);
+  position: absolute;
+  z-index: 0;
+  transform: rotate(-45deg);
+  transform-origin: -1% 0%; /* -1% becauseof the thickness of the line */
+}
+
+.route-blue {
+  width: calc(7 * var(--gutter-width));
+  height: 1vw;
+  background-color: blue;
+  top: calc((3 * var(--gutter-width)) - (var(--route-thickness) / 2));
+  left: 0;
+  position: absolute;
+  z-index: 0;
+}
+
+/* TRAIN STATIONS */
+/* ############### */
+
+.train-station {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border: 2px solid black;
+  border-radius: 50%;
+  background-color: #ffb;
+  position: absolute;
+  text-align: center;
+  color: #888;
+  font-size: var(--circle-size) * 0.7;
+  line-height: var(--circle-size); 
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+.a {
+  top: calc(3 * var(--gutter-width));
+  left: 0;
+}
+
+.b {
+  top: calc(3 * var(--gutter-width));
+  left: calc(1 * var(--gutter-width));
+}
+
+.c {
+  top: calc(3 * var(--gutter-width));
+  left: calc(2 * var(--gutter-width));
+}
+
+.d {
+  top: calc(3 * var(--gutter-width));
+  left: calc(3 * var(--gutter-width));
+}
+
+.e {
+  top: calc(3 * var(--gutter-width));
+  left: calc(4 * var(--gutter-width));
+}
+
+.f {
+  top: calc(3 * var(--gutter-width));
+  left: calc(5 * var(--gutter-width));
+}
+
+.g {
+  top: calc(3 * var(--gutter-width));
+  left: calc(6 * var(--gutter-width));
+}
+
+.h {
+  top: calc(3 * var(--gutter-width));
+  left: calc(7 * var(--gutter-width));
+}
+
+.i {
+  top: calc(0 * var(--gutter-width));
+  left: calc(1 * var(--gutter-width));
+}
+
+.j {
+  top: calc(1 * var(--gutter-width));
+  left: calc(2 * var(--gutter-width));
+}
+
+.k {
+  top: calc(2 * var(--gutter-width));
+  left: calc(3 * var(--gutter-width));
+}
+
+.l {
+  top: calc(4 * var(--gutter-width));
+  left: calc(5 * var(--gutter-width));
+}
+
+.m {
+  top: calc(5 * var(--gutter-width));
+  left: calc(6 * var(--gutter-width));
+}
+
+.n {
+  top: calc(4 * var(--gutter-width));
+  left: calc(1 * var(--gutter-width));
+}
+
+.o {
+  top: calc(1 * var(--gutter-width));
+  left: calc(4 * var(--gutter-width));
+}
+
+.p {
+  top: calc(0 * var(--gutter-width));
+  left: calc(5 * var(--gutter-width));
+}
+
+/* TRAIN */
+/* ############### */
+
+.train {
+  width: var(--circle-size);
+  height: var(--circle-size);
+  border-radius: 50%;
+  position: absolute;
+  text-align: center;
+  color: white;
+  font-size: calc(var(--circle-size) * 0.6);
+  line-height: var(--circle-size); 
+  transform: translate(-50%, -50%);
+  top: 0;
+  left: var(--gutter-width);    
+  transition: left 1s, top 1s;
+  z-index: 20;
+}
+
+.blue {
+  background-color: blue;
+}
