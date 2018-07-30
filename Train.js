@@ -1,3 +1,5 @@
+import stationLocations from './stationLocations.js';
+
 class Train {
   /**
    * Constructor function of Train
@@ -20,8 +22,9 @@ class Train {
     this.passengersElement = document.createElement('span');
     
     this.addTrainToDOM();
+    this.moveTrainToStation(this.stations[this.currentStationIndex]);
   }
-  
+
   addTrainToDOM() {
     this.trainElement.className = `train ${this.color}`;
     this.passengersElement.textContent = this.currentPassengers;
@@ -29,7 +32,11 @@ class Train {
     this.trainElement.childNodes[0].className = "passengers";
     document.getElementById('wrapper').appendChild(this.trainElement);
   }
-
+  
+  getCurrentStation() {
+    return this.stations[this.currentStationIndex];
+  }
+  
   goToNextStation() {
     // if current station is last station
     if (this.currentStationIndex === this.stations.length - 1) {
@@ -46,12 +53,15 @@ class Train {
     this.updatePassengers();
   }
 
-  getCurrentStation() {
-    return this.stations[this.currentStation];
-  }
+  moveTrainToStation(station) {
+    const x = stationLocations[station][0];
+    const y = stationLocations[station][1];
 
-  getNextStation() {
-    console.log('getNextStation');
+    // --gutter-width from style.css without unit "vw"
+    const gutterWidth = 12.5;
+
+    this.trainElement.style.left = `${x * gutterWidth}vw`;
+    this.trainElement.style.top = `${y * gutterWidth}vw`;
   }
 
   getCurrentPassengers() {

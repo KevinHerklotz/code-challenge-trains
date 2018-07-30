@@ -69,6 +69,16 @@ describe('goToNextStation()', () => {
   });
 });
 
+describe('moveTrainToStation()', () => {
+  it('train at station A should initially be at left: 0vw, top: 37.5vw', () => {
+    // As JSDOM is only a renderless DOM API emulation library it does not compute element position.
+    // I should for example use PhantomJS to test positions
+    
+    // expect(trainElement.style.left).toBe('0vw');
+    // expect(trainElement.style.top).toBe('37.5vw');
+  });
+});
+
 describe('getCurrentPassengers()', () => {
   it('getCurrentPassengers() should return 50', () => {
     const testTrain = new Train('blue', ['A', 'B'], 0, 80, 50);
