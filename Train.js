@@ -50,7 +50,6 @@ class Train {
     }
     
     this.moveTrainToStation(this.stations[this.currentStationIndex]);
-    this.updatePassengers();
   }
 
   moveTrainToStation(station) {
@@ -69,7 +68,7 @@ class Train {
   }
 
   updatePassengers() {
-    const passengerChange = Math.floor(Math.random() * 40) - 20; // number between -20 and 20
+    const passengerChange = Math.round(Math.random() * 40) - 20; // number between -20 and 20
     let newAmount = this.currentPassengers + passengerChange;
     
     if (newAmount > this.maxPassengers) {
