@@ -44,4 +44,17 @@ describe('getContinuingTrains()', () => {
     expect(getContinuingTrains(givenTrains)).toEqual(expect.arrayContaining([testTrain2]));
     expect(getContinuingTrains(givenTrains).length).toEqual(2);
   });
+
+  // This test case is actually not needed as there is no junction of 3 routes.
+  // But it shows that it would theoretically work
+  it('should let pass only 1 train, because all are at the same station', () => {
+    const testTrain1 = new Train('blue', ['A', 'B'], 1, 90, 50);
+    const testTrain2 = new Train('blue', ['B', 'D'], 0, 80, 60);
+    const testTrain3 = new Train('blue', ['A', 'B'], 1, 70, 50);
+    
+    const givenTrains = [testTrain1, testTrain2, testTrain3];
+    
+    expect(getContinuingTrains(givenTrains)).toEqual(expect.arrayContaining([testTrain2]));
+    expect(getContinuingTrains(givenTrains).length).toEqual(1);
+  });
 });

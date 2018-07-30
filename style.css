@@ -175,7 +175,7 @@ body {
   transform: translate(-50%, -50%);
   top: 0;
   left: var(--gutter-width);    
-  transition: left 1s, top 1s;
+  transition: left 500ms, top 500ms;
   z-index: 20;
 }
 
