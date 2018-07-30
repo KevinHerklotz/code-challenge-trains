@@ -17,3 +17,10 @@ Use javascript to code the scenario.
 # Assumtions
 
 * at each train station the amount of passengers alters by a random number
+
+# View solution
+
+1. checkout this repository
+2. run **`npm install`** in command line
+3. run **`npm start`** in command line
+4. open [http://localhost:3000/](http://localhost:3000/) in your (modern) browser
