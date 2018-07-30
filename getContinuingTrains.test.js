@@ -2,9 +2,7 @@ import getContinuingTrains from './getContinuingTrains.js';
 import Train from './Train.js';
 
 beforeEach(() => {
-  document.body.innerHTML =
-    '<div id="wrapper">' +
-    '</div>';
+  document.body.innerHTML = '<div id="wrapper"></div>';
 });
 
 describe('getContinuingTrains()', () => {

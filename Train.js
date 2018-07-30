@@ -18,7 +18,7 @@ class Train {
     this.maxPassengers = maxPassengers;
     
     // DOM elements
-    this.trainElement = document.createElement("div");
+    this.trainElement = document.createElement('div');
     this.passengersElement = document.createElement('span');
     
     this.addTrainToDOM();
@@ -29,7 +29,7 @@ class Train {
     this.trainElement.className = `train ${this.color}`;
     this.passengersElement.textContent = this.currentPassengers;
     this.trainElement.appendChild(this.passengersElement);
-    this.trainElement.childNodes[0].className = "passengers";
+    this.trainElement.childNodes[0].className = 'passengers';
     document.getElementById('wrapper').appendChild(this.trainElement);
   }
   

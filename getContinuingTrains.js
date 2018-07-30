@@ -1,3 +1,9 @@
+/**
+ * getContinuingTrains
+ * 
+ * @param  {Array} givenTrainArray Array of train instances
+ * @return {Array}                 Array of train instances that are allowed to continue
+ */
 const getContinuingTrains = (givenTrainArray) => {
   const continuingTrainArray = [];
   const sameStationTrainsArray = [];
