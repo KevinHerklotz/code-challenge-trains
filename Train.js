@@ -56,8 +56,10 @@ class Train {
     const x = stationLocations[station][0];
     const y = stationLocations[station][1];
 
-    // --gutter-width from style.css without unit "vw"
-    const gutterWidth = 12.5;
+    // get gutter-width from CSS
+    let gutterWidth = getComputedStyle(document.body).getPropertyValue('--gutter-width');
+    // remove "vw"
+    gutterWidth = gutterWidth.slice(0, -2);
 
     this.trainElement.style.left = `${x * gutterWidth}vw`;
     this.trainElement.style.top = `${y * gutterWidth}vw`;
